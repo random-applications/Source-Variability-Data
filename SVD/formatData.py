@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Takes individual data lists and header names, and turns the data into a txt file
 '''
 
+import os
 import pandas as pd
 
 class CreateTextFile:
@@ -25,7 +26,7 @@ class CreateTextFile:
         data_frame = pd.DataFrame(data, columns = header)
 
         # Creating the full txt file path
-        write_path = path_to_directory + '\\' + file_name 
+        write_path = os.path.join(path_to_directory, file_name )
 
         # Writing the dataframe as a text file under the name of the session code, and placing it into the Extracted Data directory
         with open(write_path, 'w') as data_file:

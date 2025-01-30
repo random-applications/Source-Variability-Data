@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Extracts VgosDB files from .tgz format and exports then to the VgosDB directory
 '''
 
@@ -27,7 +27,7 @@ class ExtractTGZ:
             
             # Renaming the file from mk3 format to VGOS format if necessary
             if file_name != extracted_file_name:
-                os.rename(extracted_file_directory + '\\' + file_name, extracted_file_directory + '\\' + extracted_file_name)
+                os.rename(os.path.join(extracted_file_directory, file_name), os.path.join(extracted_file_directory, extracted_file_name))
 
             # Closing the .tgz file
             file.close() 

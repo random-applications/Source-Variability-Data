@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Extracts relevant observables data from given VgosDB directory into lists
 '''
 
@@ -121,7 +121,7 @@ class ReadNetCDF4:
         if self.missing_source == True: 
 
             # Path to file with source information
-            file_path = os.path.dirname(__file__) + '\\VgosDB\\' + self.session_code + '\\Apriori\\Source.nc'
+            file_path = os.path.join(os.path.dirname(__file__), 'VgosDB', self.session_code, 'Apriori', 'Source.nc')
 
             # Extracting the file of source information from the Apriori directory
             self.source_name_list, self.source_right_ascension_list, self.source_declination_list, self.source_reference_list, self.status_code_source_name, self.status_code_right_ascension, self.status_code_declination, self.status_code_reference = ReadNetCDF4.extractSourceInfo(self, file_path)
@@ -130,7 +130,7 @@ class ReadNetCDF4:
         if self.missing_station == True: 
 
             # Path to file with station information
-            file_path = os.path.dirname(__file__) + '\\VgosDB\\' + self.session_code + '\\Apriori\\Station.nc'
+            file_path = os.path.join(os.path.dirname(__file__), 'VgosDB', self.session_code, 'Apriori', 'Station.nc')
 
             # Extracting the file of source information from the Apriori directory
             self.station_name_list, self.station_cartesian_coordinates_list, self.status_code_station_name, self.status_code_station_coordinates = ReadNetCDF4.extractStationInfo(self, file_path)

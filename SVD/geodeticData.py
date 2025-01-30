@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Extracts relevant geodetic radio telescope and source data into python lists
 '''
 
@@ -12,8 +12,8 @@ from numerical import NumberMethods
 
 number_functions = NumberMethods()
 
-STATION_DATA_FILE = os.path.dirname(__file__) + '\\geodetic.station.catalogue'
-SOURCE_DATA_FILE = os.path.dirname(__file__) + '\\geodetic.source.catalogue'
+STATION_DATA_FILE = os.path.join(os.path.dirname(__file__),'geodetic.station.catalogue')
+SOURCE_DATA_FILE = os.path.join(os.path.dirname(__file__), 'geodetic.source.catalogue')
 STATION_CHARACTER_LENGTH = 8
 SOURCE_CHARACTER_LENGTH = 8
 

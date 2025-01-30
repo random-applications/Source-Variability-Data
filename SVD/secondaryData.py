@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: From the extracted data, calculates bandwise SNR, baseline projection length and angle; and time in mjd format for each observation
 '''
 

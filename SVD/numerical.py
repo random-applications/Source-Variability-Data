@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Performs some more drawn-out mathmatical transformations and functions needed for the application
 '''
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 @author: Zachary Allen
-@supervisor: Tirge McCarthy
+@supervisor: Tiege McCarthy
 @function: Main method of SVD. Calls all classes and relevant functions, as well as calls for user input and outputs status messages
 '''
 
@@ -32,7 +32,7 @@ source_data = ExtractSourceCatalogue()
 station_data = ExtractStationCatalogue()
 
 # Path to folder containing text files with all current session codes
-SESSION_CODE_FILE = os.path.dirname(__file__) + '\\Session Codes'
+SESSION_CODE_FILE = os.path.join(os.path.dirname(__file__), 'Session Codes')
 
 # Server containing the VgosDB's
 SERVER = 'gdc.cddis.eosdis.nasa.gov'
@@ -174,7 +174,7 @@ class MainMethod:
             enterred_session_code_list = [code for code, count in Counter(enterred_session_code_list).items() if count == 1]
 
             # List of downloaded files
-            vgosDB_file_SVD_list = os.listdir(os.path.dirname(__file__) + '\\VgosDB')
+            vgosDB_file_SVD_list = os.listdir(os.path.join(os.path.dirname(__file__), 'VgosDB'))
 
             # Checking that the sessions VGOS DB file has not already been downloaded and extracted
             for file in vgosDB_file_SVD_list:
@@ -240,20 +240,20 @@ class MainMethod:
                 # Adding missing session code files to the session code folder
                 for year in range(2023, current_year+1):
                     
-                    session_code_file_path = os.path.dirname(__file__) + '\\Session Codes' + '\\session.codes.' + str(year) + '.catalogue'
+                    session_code_file_path = os.path.join(os.path.dirname(__file__), 'Session Codes', 'session.codes.' + str(year) + '.catalogue')
 
                     # As all the current years sessions are unlikely to be complete
                     if year == current_year:
-                        session_code_file_path = os.path.dirname(__file__) + '\\Session Codes' + '\\session.codes.incomplete.' + str(year) + '.catalogue'
+                        session_code_file_path = os.path.join(os.path.dirname(__file__), 'Session Codes', 'session.codes.incomplete.' + str(year) + '.catalogue')
                         
                     # Checking if the years folder is incomplete
-                    if year != current_year and f'session.codes.incomplete.{year}.catalogue' in os.listdir(os.path.dirname(__file__) + '\\Session Codes'):
+                    if year != current_year and f'session.codes.incomplete.{year}.catalogue' in os.path.join(os.listdir(os.path.dirname(__file__), 'Session Codes')):
                         
                         # Removing the incomplete file
-                        os.remove(os.path.dirname(__file__) + '\\Session Codes' + '\\session.codes.incomplete.' + str(year) + '.catalogue')
+                        os.remove(os.path.join(os.path.dirname(__file__), 'Session Codes', 'session.codes.incomplete.' + str(year) + '.catalogue'))
                     
                     # Determining if the session code folder for that year exists in the folder
-                    if f'session.codes.{year}.catalogue' not in os.listdir(os.path.dirname(__file__) + '\\Session Codes'):
+                    if f'session.codes.{year}.catalogue' not in os.listdir(os.path.join(os.path.dirname(__file__), 'Session Codes')):
 
                         # Navigating to that years directory in the server
                         ftps.cwd(str(year))
@@ -334,7 +334,7 @@ class MainMethod:
                     
                 # Converting the specified session_code_catalogue ascii table to a single-column data frame
                 session_name_list = Table.read(
-                    SESSION_CODE_FILE + '\\' + session_code_catalogue, 
+                    os.path.join(SESSION_CODE_FILE, session_code_catalogue), 
                     format='ascii.csv',
                     delimiter = '\t',
                     data_start= 0,
@@ -362,10 +362,10 @@ class MainMethod:
                             vgosDB_file_SVD_name = session_name
                             
                             # Setting path of the downloaded file
-                            vgosDB_file_SVD_path = os.path.dirname(__file__) + '\\VgosDB\\' + vgosDB_file_SVD_name + '.tgz'
+                            vgosDB_file_SVD_path = os.path.join(os.path.dirname(__file__), 'VgosDB', vgosDB_file_SVD_name + '.tgz')
 
                             # List of downloaded files
-                            vgosDB_file_SVD_list = os.listdir(os.path.dirname(__file__) + '\\VgosDB')
+                            vgosDB_file_SVD_list = os.listdir(os.path.join(os.path.dirname(__file__), 'VgosDB'))
 
                             # Name of file in the server
                             vgosDB_file_server_name = ''
@@ -451,7 +451,7 @@ class MainMethod:
                                 vgosDB_tgzfile_SVD_name = vgosDB_file_server_name[:-4].upper()
 
                                 # Destination directory for extracted file
-                                vgosDB_folder_SVD_path = os.path.dirname(__file__) + '\\VgosDB'
+                                vgosDB_folder_SVD_path = os.path.join(os.path.dirname(__file__), 'VgosDB')
 
                                 # Extracting the file from TGZ format into the same directory, under the same name
                                 ExtractTGZ(vgosDB_file_SVD_path, vgosDB_tgzfile_SVD_name, vgosDB_folder_SVD_path, vgosDB_file_SVD_name)
@@ -514,7 +514,7 @@ class MainMethod:
         if continue_application == True:
             
             # Creating a text file of extracted relevant data for each sessions DB
-            for session_directory in os.scandir(os.path.dirname(__file__) + '\\VgosDB'):
+            for session_directory in os.scandir(os.path.join(os.path.dirname(__file__), 'VgosDB')):
                 
                 # Making sure the session_directory is actually a directory and not a file
                 if session_directory.is_dir() and session_directory.name.lower() in matched_files: # TODO REMOVE .lower() ONCE CAPITISATION RENAME HAS WORKED
@@ -556,7 +556,7 @@ class MainMethod:
                             missing_source_references = [extract.source_ref[extract.source_name.index(name)] for name in missing_source_names]
 
                             # Opening the source text file for appending
-                            with open(os.path.dirname(__file__) + '\\geodetic.source.catalogue', 'a') as source_file_append:
+                            with open(os.path.join(os.path.dirname(__file__), 'geodetic.source.catalogue'), 'a') as source_file_append:
 
                                 # Appending a title line
                                 source_file_append.write(
@@ -651,7 +651,7 @@ class MainMethod:
                             missing_station_xyz = [extract.station_xyz[extract.station_name.index(name)] for name in missing_station_names]
 
                             # Opening the station text file for appending
-                            with open(os.path.dirname(__file__) + '\\geodetic.station.catalogue', 'a') as station_file_append:
+                            with open(os.path.join(os.path.dirname(__file__), 'geodetic.station.catalogue'), 'a') as station_file_append:
 
                                 # Formatting the data into new lines for the geodetic source data text file
                                 for line in range(len(missing_station_names)):
@@ -950,11 +950,11 @@ class MainMethod:
                     # Writing the data to a text file
                     CreateTextFile(
                         data_list,
-                        os.path.dirname(__file__) + '\\Extracted Data',
+                        os.path.join(os.path.dirname(__file__), 'Extracted Data'),
                         extract.session,
                         header = header_row
                     )
-                    print(f'The path to the text file is: {os.path.dirname(__file__) + '\\Extracted Data' + '\\' + extract.session}')
+                    print(f'The path to the text file is: {os.path.join(os.path.dirname(__file__), 'Extracted Data', extract.session)}')
 
         # If the application was forceably closed
         if continue_application == False:
