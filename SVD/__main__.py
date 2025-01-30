@@ -22,7 +22,7 @@ from numerical import NumberMethods
 from geodeticData import ExtractSourceCatalogue, ExtractStationCatalogue
 from extractFile import ExtractTGZ
 from extractData import ReadNetCDF4
-from secondaryData import ToBandwiseSNR, FindProjection, ToTimeMJD
+from secondaryData import ToBandwiseSNR, ToTimeMJD
 from formatData import CreateTextFile
 
 number_functions  = NumberMethods()
@@ -247,7 +247,7 @@ class MainMethod:
                         session_code_file_path = os.path.join(os.path.dirname(__file__), 'Session Codes', 'session.codes.incomplete.' + str(year) + '.catalogue')
                         
                     # Checking if the years folder is incomplete
-                    if year != current_year and f'session.codes.incomplete.{year}.catalogue' in os.path.join(os.listdir(os.path.dirname(__file__), 'Session Codes')):
+                    if year != current_year and f'session.codes.incomplete.{year}.catalogue' in os.listdir(os.path.join(os.path.dirname(__file__), 'Session Codes')):
                         
                         # Removing the incomplete file
                         os.remove(os.path.join(os.path.dirname(__file__), 'Session Codes', 'session.codes.incomplete.' + str(year) + '.catalogue'))
