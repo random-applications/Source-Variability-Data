@@ -134,7 +134,7 @@ class MainMethod:
                 print('Note that SVD will calculate baseline projection angles and lengths, of which the \ncomputations will take significant time.\n')
 
             print('Warning, SVD only accepts session codes in the VGOS format.')
-            print('To compile data for multiple VgosDB sessions, separate individual entries by a space (" ").')
+            print('To compile data for multiple VgosDB sessions, separate individual entries by a space.')
             print('-' * 87 + '\n')
 
             # Passing the users entry through stage one of processing.
@@ -604,8 +604,8 @@ class MainMethod:
                                     # Formatting the declination coordinates
                                     formatted_declination_degree = str(sign) + ''.join(['0' for zeros in range(2-len(str(abs(declination_degrees))))]) + str(abs(declination_degrees))
                                     formatted_declination_minute = ''.join(['0' for zeros in range(2-len(str(declination_minute)))]) + str(declination_minute)
-                                    formatted_declination_second = ''.join(['0' for zeros in range(2-len(str(int(rounded_declination_seconds))))]) + str(rounded_declination_seconds) + ''.join([' ' for white_space in range(7-len(str( float(Decimal(str(rounded_declination_seconds)) % 1) )))]) #''.join([' ' for white_space in range(8-len(str(rounded_right_ascension_seconds-int(rounded_right_ascension_seconds))))])
-
+                                    formatted_declination_second = ''.join(['0' for zeros in range(2-len(str(int(rounded_declination_seconds))))]) + str(rounded_declination_seconds) + ''.join([' ' for white_space in range(7-len(str( float(Decimal(str(rounded_declination_seconds)) % 1) )))]) 
+                                    
                                     # Formatting the source reference
                                     formatted_source_reference = missing_source_references[line].replace(' ','').replace('-',' ')
 
