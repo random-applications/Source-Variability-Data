@@ -86,6 +86,10 @@ The following is the list of dependencies and their versions used when writting 
 >
 > **pandas** (2.2.3)
 
+## Downloading the application
+
+To download this application click the "<> Code" button and select "DownloadZIP". For further explanation see [this link](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github).
+
 ## Application use
 
 To use this application, the *SVD* folder must be downloaded to the users device. 
