@@ -287,7 +287,7 @@ class MainMethod:
             except Exception as error:
 
                 print('~' * 87)
-                print(f'{error}! Internet connection failed, SVD could not request the required server.')
+                print(f'{error}!\n Internet connection failed, SVD could not request the required server.')
                 print('~' * 87)
 
                 # Only allowing user to recall the server if user input is specified
@@ -407,7 +407,7 @@ class MainMethod:
                                     except Exception as error:
 
                                         print('~' * 87)
-                                        print(f'{error} SVD failed to locate or download {vgosDB_file_SVD_name}')
+                                        print(f'{error}\n SVD failed to locate or download {vgosDB_file_SVD_name}')
                                         print('~' * 87)
 
                                         # Only allowing user to retry the download if user input is specified
