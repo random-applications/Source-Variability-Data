@@ -8,7 +8,7 @@
 
 ## Disclaimer
 
-> *The writing of this program was under the bases of a 8-week research project and will not be maintained by the author henceforth. The code cannot be gauranteed to work apropriately and it is not written in a professional style. Some attempt has been made to document the code, in the expectation that the application may be reworked by a professional developer.*
+> *The writing of this program was under the bases of an 8-week research project and will not be maintained by the author henceforth. The code cannot be guaranteed to work appropriately and it is not written in a professional style. Some attempt has been made to document the code, in the expectation that the application may be reworked by a professional developer.*
 
 ## Purpose
 
@@ -16,11 +16,11 @@ This application was written to provide a database of information to aid researc
 
 ## Description
 
-This program takes a *VGOS* format session code as input of, extracts the *VgosDB* file of this session, and produces a text file of data investigating source variability. Also there is an optional parameter of calculating the projected baseline lengths and angles which are geometric parameters of the system that take a while to comput due to the numerous vector calculations needed. Depending on whether the telescopes in the observation used the *VGOS* or legacy *S/X* recievers, some of the data may be displayed per frequency band rather than as the total average value.
+This program takes a *VGOS* format session code as input of, extracts the *VgosDB* file of this session, and produces a text file of data investigating source variability. Also, there is an optional parameter of calculating the projected baseline lengths and angles which are geometric parameters of the system that take a while to compute due to the numerous vector calculations needed. Depending on whether the telescopes in the observation used the *VGOS* or legacy *S/X* receivers, some of the data may be displayed per frequency band rather than as the total average value.
 
 The entirety of the program was written in the *Python* programming language due to its versatility and use in the field of Astrophysics. The structure of this application is predominantly class-based and revolves around a main-method class that deals with all user interaction. The six other classes were designed with a small degree of independence such that they could be used independently as part of some other application.
 
-The main challenges that were faced when writing this application came from the requesting of a *CDDIS* server which after trying and failing to use the *HTTP* server, a secure *FTP* server was used instead. Unfortunately this means that the downloading of the *VgosDB* files from the *CDDIS* server is quite a timely process as no multiprocessing is utilised.
+The main challenges that were faced when writing this application came from the requesting of a *CDDIS* server which after trying and failing to use the *HTTP* server, a secure *FTP* server was used instead. Unfortunately, this means that the downloading of the *VgosDB* files from the *CDDIS* server is quite a timely process as no multiprocessing is utilised.
 
 Future improvements to this application may include the extraction of more data that is relevant to source performance, optimising the runtime or modifying into a graphical-user-interface.
 
@@ -76,7 +76,7 @@ Lists of data only displayed if the user specifies *projection*:
 
 ## Dependencies
 
-The following is the list of dependencies and their versions used when writting this application:
+The following is the list of dependencies, and their versions used when writing this application:
 
 > **numpy** (2.2.2)
 >
@@ -88,7 +88,7 @@ The following is the list of dependencies and their versions used when writting 
 
 ## Downloading the application
 
-To download this application click the "<> Code" button and select "DownloadZIP". For further explanation see [this link](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github).
+To download this application, click the "< > Code" button and select "Download ZIP". For further explanation see [this link](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github).
 
 ## Application use
 
@@ -96,7 +96,7 @@ To use this application, the *SVD* folder must be downloaded to the users device
 
 ### Calling the application
 
-Once the *SVD* folder downloaded, the program can be called from the command line interface by enterring the name of the programming environment, followed by the path to the *SVD* folder on the users device. To call the program from the commandline interface, enter ``` python "path/to/SVD" ``` where ``` "path/to/SVD" ``` should be replaced with the actual path to the file on the users computer. Below is an example of calling the folder from the *Windows command line*:
+Once the *SVD* folder downloaded, the program can be called from the command line interface by entering the name of the programming environment, followed by the path to the *SVD* folder on the users device. To call the program from the command line interface, enter ``` python "path/to/SVD" ``` where ``` "path/to/SVD" ``` should be replaced with the actual path to the file on the users computer. Below is an example of calling the folder from the *Windows command line*:
 
 ```
 Windows PowerShell
@@ -107,11 +107,11 @@ PS C:\Users\User> python "Desktop\SVD"
 
 ### Program input
 
-At this point, there are two different ways to run the application. The program can either be run allowing for user input, or run directly from the command line interface. To see the command line interface method explanation, navigate to the [command line interface tab](#command-line-interface-method).
+At this point, there are two different ways to run the application. The program can either be run allowing for user input or run directly from the command line interface. To see the command line interface method explanation, navigate to the [command line interface tab](#command-line-interface-method).
 
 #### User input method
 
-To activate the user input method of this applucation, after typing the path to the command line interface (as shown above) press enter and the following message will be displayed. Note that the application may take up to 5 seconds to load all the required modules before the user input message is displayed. Below is an example of the text displayed when user input is specified:
+To activate the user input method of this application, after typing the path to the command line interface (as shown above) press enter and the following message will be displayed. Note that the application may take up to 5 seconds to load all the required modules before the user input message is displayed. Below is an example of the text displayed when user input is specified:
 
 ```
 --------------------------------SOURCE VARIABILITY DATA--------------------------------
@@ -120,7 +120,7 @@ Type "help" for more information or type "quit" to end this application
 ---------------------------------------------------------------------------------------
 Note that by default, SVD will not calculate baseline projection angles or lengths as
 the computations take significant time. To enable calculation of projections, type
-"projection" after enterring the VgosDB session code(s).
+"projection" after entering the VgosDB session code(s).
 
 Warning, SVD only accepts session codes in the VGOS format.
 To compile data for multiple VgosDB sessions, separate individual entries by a space.
@@ -130,11 +130,11 @@ Enter VgosDB session code(s):
 >
 ```
 
-At this point, there are a number of possible entries for the program.
+At this point, there are several possible entries for the program.
 
 ##### Calling "quit"
 
-If ```quit``` is enterred into the user input entry, the program will end. Note that a similar result will be displayed for quitiing at any stage in the program. See the example below:
+If ```quit``` is entered into the user input entry, the program will end. Note that a similar result will be displayed for quitting at any stage in the program. See the example below:
 
 ```
 Enter VgosDB session code(s):
@@ -145,7 +145,7 @@ Thankyou for using the SVD application.
 
 ##### Calling "help"
 
-If ```help``` is enterred into the user input entry, the program will enter the help method. See the example below:
+If ```help``` is entered into the user input entry, the program will enter the help method. See the example below:
 
 ```
 Enter VgosDB session code(s):
@@ -166,7 +166,7 @@ To use the help menu, type ```1```, ```2```, ```3```, ```4``` or ```5``` and an 
 ```
 help> 1
 ---------------------------------------------------------------------------------------
-The session code is a unique identifyer of each Geodetic VLBI session. They are usually
+The session code is a unique identifier of each Geodetic VLBI session. They are usually
 4 to 6 digits long, formed from an assortment of numbers and letters (e.g. "VO3012").
 To find a full list of all session codes, open any of the yearly catalogue files in the
 session codes folder in the SVD application folder. The collection of characters after
@@ -180,15 +180,15 @@ codes "VO3012" and "B19364", type "VO3012, B19364").
 help>
 ```
 
-Note that the program will stay in the help method until ```quit``` is enterred, where it returns to the main method.
+Note that the program will stay in the help method until ```quit``` is entered, where it returns to the main method.
 
-If ```help``` or any other message is enterred, the following message will be dispayed:
+If ```help``` or any other message is entered, the following message will be displayed:
 
 ```
 help> help
 ---------------------------------------------------------------------------------------
-To use the help menu type the number "1", "2", "3", "4" or "5" which relates to the
-particular aspect of the application that needs a further explanation as dictated by
+To use the help menu, type the number "1", "2", "3", "4" or "5" which relates to the
+aspect of the application that needs a further explanation as dictated by
 the menu. To leave the help menu and return to the application type "quit".
 ---------------------------------------------------------------------------------------
 help>
@@ -214,7 +214,7 @@ Enter VgosDB session code(s):
 
 ##### Specifying projection
 
-By default, due to its slow computation, the application will not calculate the projected bandwise. To specify to the program to calculate projections, ```projection``` must be enterred into the interface after the session code. 
+By default, due to its slow computation, the application will not calculate the projected baseline angles and lengths (projections). To specify to the program to calculate projections, ```projection``` must be entered into the interface after the session code. 
 
 Below is an example of calling projection for the session code ```VO3012```:
 
@@ -232,7 +232,7 @@ Enter VgosDB session code(s):
 
 #### Command line interface method
 
-To use the command line interface method, all instructions for the application are enterred into a single line. 
+To use the command line interface method, all instructions for the application are entered into a single line. 
 
 ##### Calling "--help"
 
@@ -256,18 +256,18 @@ positional arguments:
 
 options:
   -h, --help        show this help message and exit
-  -p, --projection  specify calculation of projcted baseline angles and lengths
+  -p, --projection  specify calculation of projected baseline angles and lengths
 
 Thankyou for using the SVD application
 ```
 
-Note that one ```--help``` or ```-h``` is enterred, the program will instantly end.
+Note that one ```--help``` or ```-h``` is entered, the program will instantly end.
 
 ##### Entering a session code
 
 A *VGOS* format session code (or session codes) is what the program takes as input. The *VGOS* session codes are a 4-6 digit collection of alphanumeric characters that uniquely identify different observing sessions.
 
-To enter a session code directly into the command line interface, type the session code after enterring the programming environment and the path to the *SVD* folder. See the example below for the session code ```VO3012```:
+To enter a session code directly into the command line interface, type the session code after entering the programming environment and the path to the *SVD* folder. See the example below for the session code ```VO3012```:
 
 ```
 Windows PowerShell
@@ -287,7 +287,7 @@ PS C:\Users\User> python "Desktop\SVD" VO3012 B19364
 
 ##### Calling "--projection"
 
-By default, due to its slow computation, the application will not calculate the projected bandwise. To specify to the program to calculate projections, ```--projection``` or ```-p``` must be enterred into the interface before the session code. 
+By default, due to its slow computation, the application will not calculate the projected baseline angles and lengths (projections). To specify to the program to calculate projections, ```--projection``` or ```-p``` must be entered into the interface before the session code. 
 
 Below is an example of calling projection for the session code ```VO3012```:
 
@@ -307,7 +307,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 PS C:\Users\User> python "Desktop\SVD" --projection VO3012 B19364
 ```
 
-As an added level of functionality, if projection is specified by no session code enterred, the program will change to the user input method. As projection is already specified, the program instead displays a warning message that the calculations will be undertaken.
+As an added level of functionality, if projection is specified by no session code entered, the program will change to the user input method. As projection is already specified, the program instead displays a warning message that the calculations will be undertaken.
 
 ```
 Windows PowerShell
@@ -331,9 +331,9 @@ Enter VgosDB session code(s):
 
 ### Program errors
 
-In most cases, the program will run to completion without error (a process that takes around 60-100 seconds). There are several instances in the code that possible errors have excepted and the program will throw a status error.
+In most cases, the program will run to completion without error (a process that takes around 60-100 seconds). There are several instances in the code that possible errors have excepted, and the program will throw a status error.
 
-If the user input mode is used to enter session codes, the sections in which errors occoured may be retried. Otherwise, of the program was only called through the command line, the program will end.
+If the user input mode is used to enter session codes, the sections in which errors occurred may be retried. Otherwise, of the program was only called through the command line, the program will end.
 
 There are 3 types of errors that have been excepted by the code. Any other type of error will cause the program to crash.
 
@@ -343,12 +343,12 @@ There are two points in the code where the *CDDIS* server is requested. First th
 
 #### Matching file error
 
-The matching file error will occur if the application cannot find a match in the session codes catalogue for the user enterred session code. This will occur if there are mistakes in the users entry, or if the session code does not exist in the catalogue. The only ways for the session code to not appear in the catalogue are if the catalogue has been modified to provide incorrect data, or the *CDDIS* server does not contain the selected session.
+The matching file error will occur if the application cannot find a match in the session codes catalogue for the user entered session code. This will occur if there are mistakes in the users entry, or if the session code does not exist in the catalogue. The only ways for the session code to not appear in the catalogue are if the catalogue has been modified to provide incorrect data, or the *CDDIS* server does not contain the selected session.
 
 If the program cannot find a specific session, the *VgosDB* must be downloaded and extracted manually to the *VgosDB* File Folder in the *SVD* application folder. Then, the program must be re-run with the name of the manually added file called. For conformity, if any *VgosDB* files are downloaded and extracted manually, they should be named under the *VGOS* session name with lowercase letters.
 
 #### Data extraction errors
 
-During the process of extracting data from the *NetCDF4* files in the *VgosDB*, numerous errors are excepted. Due to the change of file documenting in 2010 from the *Mk3* format to the *VGOS* format, the *VgosDB* files from earlier than 2010 are likely to have a large number of miss-displayed information, and it is likely that only a small amount of the relevant data will be able to be extracted.
+During the process of extracting data from the *NetCDF4* files in the *VgosDB*, numerous errors are excepted. Due to the change of file documenting in 2010 from the *Mk3* format to the *VGOS* format, the *VgosDB* files from earlier than 2010 are likely to have a large amount of miss-filed information, and it is likely that only a small amount of the relevant data will be able to be extracted.
 
 For each list of data extracted the program identifies their extraction status and either provides a warning or error message to the user. The program displays no message if no errors occur, a warning message if the program detected that some entries in the list were errors, and an error message if the program detected that all the entries were errors. A similar process is used for all calculations using this data.
